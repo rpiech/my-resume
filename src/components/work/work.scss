@@ -1,0 +1,108 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.work {
+  margin-bottom: 4rem;
+  
+  .card {
+    background-color: $featureGray;
+    border-radius: 2rem;
+    padding: 2.875rem 1.5rem;
+    max-width: 56rem;
+    margin: 6rem auto;
+   
+    &__image img {
+      width: 100%;
+      height: auto;
+      max-width: 25rem;
+    }
+
+    &__text {
+      padding-top: 0;
+    }
+  }
+
+  .accordion {
+    &__question {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0;
+      font-size: 0.875rem;
+      font-family: 'Roboto', sans-serif;
+      text-align: left;
+      flex: 0 0 10px;
+      font-weight: 700;
+    }
+
+    &__question,
+    &__question:focus {
+      outline: solid 1px $featureGray
+    }
+
+    &__question::after {
+      content: '';
+      display: block;
+      background-image: url(./arrow.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      transition: transform 300ms ease-in-out;
+      height: 15px;
+      width: 15px;
+      transform: rotate(90deg);
+    }
+    
+    &__question.open {
+      font-weight: 300;
+    }
+    
+    &__item {
+      border-bottom: 1px solid $grayBlue;
+      padding-top: 1rem;
+    }
+    
+    
+    &__question.open::after {
+      transform: rotate(-90deg)
+    }
+
+    &__content {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    &__collapse.collapse {
+      display: none;
+    }
+  
+    &__collapse.open {
+      display: block;
+    }
+  }
+  // desktop styles
+
+  @include breakpoint-up(medium) {
+    .card {
+      position: relative;
+      margin: 0 auto;
+      padding: 4.375rem 6.25rem 4.375rem 0;
+      display: flex;
+    }
+
+    &__image, 
+    &__text {
+      flex: 1;
+    }
+
+    .accordion__item {
+      width: 400px;
+      margin-bottom: 2rem;
+    }
+  }
+
+
+}
