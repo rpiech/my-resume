@@ -1,0 +1,60 @@
+@import "../../variables.scss";
+
+.navbar {
+  width: 100%;
+  height: 4.375rem; // 70px
+  background-color: crimson;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  transition: all 1s ease;
+
+  &__wrapper {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo a {
+    font-size: 40px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $darkBlue;
+  }
+
+  &__hamburger {
+    width: 2rem;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    span {
+      width: 100%;
+      height: 5px;
+      background-color: $darkBlue;
+      transform-origin: 2px 3px;
+      transition: all 300ms ease-in-out;
+    }
+  }
+
+  &.active {
+    background-color: $purple;
+
+    .navbar__hamburger {
+      span {
+        &:first-child {
+          transform: rotate(45deg)
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
