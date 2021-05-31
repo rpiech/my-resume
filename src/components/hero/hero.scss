@@ -1,0 +1,62 @@
+@import "../../mixins.scss";
+@import "../../variables.scss";
+
+.hero {
+  background-color: $heroGrayish;
+
+  .container {
+    max-width: 69.375rem;
+    margin: 0 auto;
+  
+    &--pall {
+      padding-top: 4.375rem;
+      padding-bottom: 4.375rem;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__image {
+    position: relative;
+    background-image: url(./programmer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 17.5rem;
+  }
+
+  &__text {
+    text-align: center;
+  }
+}
+
+.hero {
+  &__image {
+    @include breakpoint-up(large){
+      flex: 3;
+      order: 2;
+      height: 41rem;
+      background-position: bottom center;
+      left: 20%;
+    }
+
+    @include breakpoint-up(medium){
+      min-height: 25rem;
+      background-position: center 60%;
+    }
+  }
+  
+  &__text {
+    @include breakpoint-up(large){
+      flex: 2;
+      text-align: left;
+    }
+  }
+}
+
+.container {
+  @include breakpoint-up(large){
+    display: flex;
+    align-items: center;
+  }
+}
